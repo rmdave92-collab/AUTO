@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slip Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="page-container">
+        <header>
+            <h1>Slip Generator</h1>
+        </header>
+
+        <section class="form-section">
+            <form id="slipForm">
+                <div class="field-group">
+                    <label for="sr">Sr.</label>
+                    <input type="number" id="sr" name="sr" min="1"  />
+                </div>
+                <div class="field-group">
+                    <label for="holderName">Account Holder Name</label>
+                    <input type="text" id="holderName" name="holderName"  />
+                </div>
+                <div class="field-group">
+                    <label for="accountNo">Account No.</label>
+                    <input type="text" id="accountNo" name="accountNo"  />
+                </div>
+                <div class="field-group">
+                    <label for="utrNo">UTR No.</label>
+                    <input type="text" id="utrNo" name="utrNo"  />
+                </div>
+                <div class="field-group">
+                    <label for="amount">Amount</label>
+                    <input type="text" id="amount" name="amount"  />
+                </div>
+                <div class="field-group">
+                    <label for="charge">Charge</label>
+                    <input type="text" id="charge" name="charge"  />
+                </div>
+                <div class="field-group full-width">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" >
+                        <option value="">Select status</option>
+                        <option value="Success">Success</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Process">Process</option>
+                    </select>
+                </div>
+                <div class="actions full-width">
+                    <button type="submit">Generate Slip</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="previewSection" class="preview-section hidden">
+            <div class="preview-header">
+                <h2>Slip Preview</h2>
+                <button id="downloadBtn" type="button">Download JPG</button>
+            </div>
+            <div id="slipPreview" class="slip-preview">
+                <div class="slip-table-wrapper">
+                    <table class="slip-table">
+                        <thead>
+                            <tr>
+                                <th><span class="header-text">Sr.</span><span class="header-arrow"></span></th>
+                                <th><span class="header-text">A/c Holder<br>Name</span><span
+                                        class="header-arrow"></span>
+                                </th>
+                                <th><span class="header-text">Account No.</span><span class="header-arrow"></span></th>
+                                <th><span class="header-text">UTR No.</span><span class="header-arrow"></span></th>
+                                <th><span class="header-text">Amount</span><span class="header-arrow"></span></th>
+                                <th><span class="header-text">Charge</span><span class="header-arrow"></span></th>
+                                <th><span class="header-text">Status</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="viewSr"></td>
+                                <td id="viewHolderName"></td>
+                                <td id="viewAccountNo"></td>
+                                <td id="viewUtrNo"></td>
+                                <td id="viewAmount"></td>
+                                <td id="viewCharge"></td>
+                                <td id="viewStatus"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        if (typeof html2canvas !== 'undefined') {
+            console.log('html2canvas loaded successfully');
+        } else {
+            console.error('html2canvas NOT loaded');
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
